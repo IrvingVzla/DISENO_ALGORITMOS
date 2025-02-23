@@ -15,5 +15,3 @@ DefaultConnection
 
 Debemos configurar las variables de entorno .env en el proyecto FrontendReact
 VITE_URL_API: Debemos escribir la url del servicio a consumir, de esta forma. https://localhost:7243
-
-NOTA: En el proyecto aparecen 2 autores, ambas son mis cuentas (tuve inconvenientes al subir el repositorio)
