@@ -1,0 +1,214 @@
+[
+  {
+    "ContainingType": "MECTRONICS._4.Controllers.EstudiantesController",
+    "Method": "actualizarEstudiante",
+    "RelativePath": "api/Estudiantes/actualizarEstudiante",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "estudiante",
+        "Type": "MECTRONICS._2.Models.Estudiante",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MECTRONICS._4.Controllers.EstudiantesController",
+    "Method": "CrearEstudiante",
+    "RelativePath": "api/Estudiantes/crearEstudiante",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "estudiante",
+        "Type": "MECTRONICS._2.Models.Estudiante",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MECTRONICS._4.Controllers.EstudiantesController",
+    "Method": "EstudianteActual",
+    "RelativePath": "api/Estudiantes/obtenerEstudianteActual",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "MECTRONICS._2.Models.Estudiante",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MECTRONICS._4.Controllers.EstudiantesController",
+    "Method": "ObtenerEstudiantes",
+    "RelativePath": "api/Estudiantes/obtenerEstudiantes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[MECTRONICS._2.Models.Estudiante, MECTRONICS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MECTRONICS._4.Controllers.LoginController",
+    "Method": "actualizarContrasena",
+    "RelativePath": "api/Login/actualizarContrasena",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "actualizarContrasena",
+        "Type": "MECTRONICS._2.Models.ActualizarContrasena",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MECTRONICS._4.Controllers.LoginController",
+    "Method": "IniciarSesion",
+    "RelativePath": "api/Login/iniciarSesion",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "login",
+        "Type": "MECTRONICS._2.Models.Login",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MECTRONICS._4.Controllers.LoginController",
+    "Method": "ValidarToken",
+    "RelativePath": "api/Login/validarToken",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MECTRONICS._4.Controllers.MateriaEstudianteController",
+    "Method": "AgregarMateria",
+    "RelativePath": "api/MateriaEstudiante/agregarMateriaXEstudiante",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "materiaEstudiante",
+        "Type": "MECTRONICS._2.Models.MateriaEstudiante",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MECTRONICS._4.Controllers.MateriaEstudianteController",
+    "Method": "EstudiantesXMateria",
+    "RelativePath": "api/MateriaEstudiante/obtenerEstudiantesXMateria",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "materiaId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[MECTRONICS._2.Models.VMateriaEstudiante, MECTRONICS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MECTRONICS._4.Controllers.MateriaEstudianteController",
+    "Method": "MateriasXEstudiante",
+    "RelativePath": "api/MateriaEstudiante/obtenerMateriasXEstudiante",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[MECTRONICS._2.Models.VMateriaEstudiante, MECTRONICS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MECTRONICS._4.Controllers.MateriaEstudianteController",
+    "Method": "QuitarMateria",
+    "RelativePath": "api/MateriaEstudiante/quitarMateriaXEstudiante",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "materiaEstudiante",
+        "Type": "MECTRONICS._2.Models.MateriaEstudiante",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MECTRONICS._4.Controllers.MateriasController",
+    "Method": "ObtenerEstudiantes",
+    "RelativePath": "api/Materias/obtenerMaterias",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[MECTRONICS._2.Models.VMateria, MECTRONICS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]
