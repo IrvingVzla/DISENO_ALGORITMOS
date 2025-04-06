@@ -7,12 +7,14 @@ import PaginaPrincipal from './components/PaginaPrincipal/PaginaPrincipal';
 import RegistroMaterias from './components/RegistroMaterias/RegistroMaterias';
 import Perfil from './components/Perfil/Perfil';
 import PrivateRoute from './components/PrivateRoute';
+import LandingPage from './components/LandingPage';
 
 const App = () => {
     return (
         <Routes>
             {/* Rutas publicas */}
-            <Route path="/" element={<LoginForm />} />
+            <Route path="/LoginForm" element={<LoginForm />} />
+            <Route path="/" element={<LandingPage />} />
             <Route path="/FormularioRegistro" element={<FormularioRegistro />} />
 
             {/* Rutas protegidas */}

@@ -1,108 +1,53 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; 
-import Swal from 'sweetalert2';
-import ReactLoading from 'react-loading';
-import { apiUrl } from '../config';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-const LoginForm = () => {
-    const [correo, setCorreo] = useState('');
-    const [contrasena, setContrasena] = useState('');
-    const [loading, setLoading] = useState(false);
-    const navigate = useNavigate();
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-
-        // Objeto para enviar al backend
-        const login = {
-            CORREO_ELECTRONICO: correo,
-            CONTRASENA: contrasena
-        };
-
-        try {
-            const response = await fetch(`${apiUrl}/api/Login/iniciarSesion`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(login)
-            });
-
-            if (response.ok) {
-                const data = await response.json();
-                
-                localStorage.setItem('token', data.token);
-                localStorage.setItem('nombre', data.nombre);
-
-                navigate('/PaginaPrincipal');
-
-            } else {
-                throw new Error(await response.text());
-            }
-
-        } catch (error) {
-            Swal.fire({
-                title: 'Error',
-                text: error.message,
-                icon: 'error',
-                confirmButtonText: 'Intentar de nuevo'
-            });
-
-        } finally {
-            setLoading(false);
-        }
-    };
-
+export default function LoginForm() {
     return (
-        <div className="container">
-            <div className="form-container">
-                <h2 className="text-center mb-4">Iniciar Sesión</h2>
-                <form onSubmit={handleSubmit} className="mt-4">
+        <div className="container mt-5">
+            <div className="d-flex justify-content-start mb-3">
+                <a className="text-decoration-none"><Link to="/">&larr; Atrás</Link></a>
+            </div>
+
+            <div className="mx-auto" style={{ maxWidth: "500px", marginTop: "6rem" }}>
+                <h2 className="fw-bold mb-3">Iniciar Sesión</h2>
+                <p className="text-muted mb-4">
+                    Sus datos son necesarios a efectos de la normativa del sector.
+                </p>
+
+                <form>
                     <div className="mb-3">
-                        <label htmlFor="correo" className="form-label">Usuario</label>
+                        <label className="form-label">Rol</label>
+                        <select className="form-select">
+                            <option value="">Seleccione un rol</option>
+                            <option value="radicador">Radicador</option>
+                            <option value="gestor">Gestionador</option>
+                            <option value="admin">Administrador</option>
+                        </select>
+                    </div>
+
+                    <div className="mb-3">
+                        <label className="form-label">Correo electrónico</label>
                         <input
-                            type="text"
-                            id="correo"
+                            type="email"
                             className="form-control"
-                            value={correo}
-                            onChange={(e) => setCorreo(e.target.value)}
-                            placeholder="Correo Electrónico"
+                            placeholder="JuanDiegoPaez-rad@sigedoc.co"
                         />
                     </div>
 
                     <div className="mb-3">
-                        <label htmlFor="contrasena" className="form-label">Contraseña</label>
-                        <input
-                            type="password"
-                            id="contrasena"
-                            className="form-control"
-                            value={contrasena}
-                            onChange={(e) => setContrasena(e.target.value)}
-                            placeholder="Contraseña"
-                        />
+                        <label className="form-label">Escribir contraseña</label>
+                        <input type="password" className="form-control" placeholder="Contraseña" />
                     </div>
 
-                    {loading && (
-                        <div className="overlay">
-                            <div className="spinner-container">
-                                <ReactLoading type="spin" color="#007bff" height={100} width={100} />
-                            </div>
-                        </div>
-                    )}
+                    <button type="submit" className="btn btn-dark w-100 mb-3">
+                        Continuar
+                    </button>
 
-                    <div className="d-grid gap-2">
-                        <button type="submit" className="btn btn-primary">Iniciar sesión</button>
+                    <div className="text-center text-muted" style={{ fontSize: "0.9rem" }}>
+                        <i className="bi bi-shield-lock"></i> Su información está segura
                     </div>
                 </form>
-
-                <div className="text-center mt-3">
-                    <p>¿No tienes cuenta? <Link to="/FormularioRegistro">Regístrate aquí</Link></p>  {/* Usar Link para navegación */}
-                </div>
             </div>
         </div>
     );
-};
-
-export default LoginForm;
+}

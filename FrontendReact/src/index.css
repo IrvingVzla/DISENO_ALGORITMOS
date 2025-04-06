@@ -36,3 +36,23 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+
+/* Estilo para LandingPage*/
+.landing-page {
+    min-height: 100vh;
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.main-content {
+    height: calc(100vh - 70px);
+    position: relative;
+}
+
+.fondo-landing{
+    background-image: url('./assets/FondoLanding.png');
+    background-size: cover;
+    background-position: center;
+}

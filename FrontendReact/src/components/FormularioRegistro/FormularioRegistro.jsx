@@ -1,114 +1,67 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import Swal from 'sweetalert2';
-import ReactLoading from 'react-loading';
-import { apiUrl } from '../../config';
-import { useNavigate } from 'react-router-dom';
-import './FormularioRegistro.css';
+import React from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from "react-router-dom";
 
-const RegistroForm = () => {
-    const [nombre, setNombre] = useState('');
-    const [apellido, setApellido] = useState('');
-    const [correo, setCorreo] = useState('');
-    const [contrasena, setContrasena] = useState('');
-    const [loading, setLoading] = useState(false);
-    const navigate = useNavigate();
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-
-        // Objeto para enviar al backend
-        const estudiante = {
-            NOMBRE: nombre,
-            APELLIDO: apellido,
-            CORREO_ELECTRONICO: correo,
-            CONTRASENA: contrasena
-        };
-
-        try {
-            // Realizamos la solicitud POST a la API
-            const response = await fetch(`${apiUrl}/api/Estudiantes/crearEstudiante`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(estudiante)
-            });
-
-            if (response.ok) {
-                Swal.fire({
-                    title: '¡Éxito!',
-                    text: 'Estudiante creado con éxito.',
-                    icon: 'success',
-                    confirmButtonText: 'Aceptar'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        navigate('/');
-                    }
-                });
-
-            } else {
-                throw new Error(await response.text());
-            }
-
-        } catch (error) {
-            Swal.fire({
-                title: 'Error',
-                text: error.message,
-                icon: 'error',
-                confirmButtonText: 'Intentar de nuevo'
-            });
-
-        } finally {
-            setLoading(false);
-        }
-    };
-
+export default function RegistroForm() {
     return (
-        <div className="container">
-            <div className="form-container">
-                <h2 className="text-center mb-4">Formulario de Registro</h2>
-                <form onSubmit={handleSubmit}>
-                    <div className="mb-3">
-                        <label htmlFor="nombre" className="form-label">Nombre</label>
-                        <input type="text" className="form-control" id="nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} required placeholder="Nombres"/>
-                    </div>
-
-                    <div className="mb-3">
-                        <label htmlFor="apellido" className="form-label">Apellido</label>
-                        <input type="text" className="form-control" id="apellido" value={apellido} onChange={(e) => setApellido(e.target.value)} required placeholder="Apellidos"/>
-                    </div>
-
-                    <div className="mb-3">
-                        <label htmlFor="correo" className="form-label">Correo Electrónico</label>
-                        <input type="email" className="form-control" id="correo" value={correo} onChange={(e) => setCorreo(e.target.value)} required placeholder="Correo Electrónico" />
-                    </div>
-
-                    <div className="mb-3">
-                        <label htmlFor="contrasena" className="form-label">Contraseña</label>
-                        <input type="password" className="form-control" id="contrasena" value={contrasena} onChange={(e) => setContrasena(e.target.value)} required placeholder="Contraseña" />
-                    </div>
-
-                    {loading && (
-                        <div className="overlay">
-                            <div className="spinner-container">
-                                <ReactLoading type="spin" color="#007bff" height={100} width={100} />
-                            </div>
-                        </div>
-                    )}
-
-                    <div className="d-grid gap-2">
-                        <button type="submit" className="btn btn-primary">Registrar</button>
-                    </div>
-                </form>
-
-                <div className="text-center mt-3">
-                    <p>¿Ya tienes una cuenta? <Link to="/">Inicia sesión</Link></p>  {/* Usar Link para navegación */}
-                </div>
+        <div className="container mt-5">
+            <div className="d-flex justify-content-start mb-3">
+                <a className="text-decoration-none"><Link to="/">&larr; Atrás</Link></a>
             </div>
+
+            <div className="mx-auto" style={{ maxWidth: "500px" }}>
+                <h2 className="fw-bold mb-3">Registrarse en SIGEDOC</h2>
+                <p className="text-muted mb-4">
+                    Sus datos son necesarios a efectos de la normativa del sector.
+                </p>
+            </div>
+
+            <form className="mx-auto" style={{ maxWidth: "500px" }}>
+                <div className="mb-3">
+                    <label className="form-label">Nombre Completo*</label>
+                    <input type="text" className="form-control" placeholder="Juan Diego paez" />
+                </div>
+
+                <div className="mb-3">
+                    <label className="form-label">Documento*</label>
+                    <input type="text" className="form-control" placeholder="Digite Documento" />
+                </div>
+
+                <div className="mb-3">
+                    <label className="form-label">Rol*</label>
+                    <select className="form-select">
+                        <option value="">Seleccione un rol</option>
+                        <option value="radicador">Radicador</option>
+                        <option value="gestor">Gestionador</option>
+                        <option value="admin">Administrador</option>
+                    </select>
+                </div>
+
+                <div className="mb-3">
+                    <label className="form-label">Ciudad*</label>
+                    <input type="text" className="form-control" placeholder="Ciudad" />
+                </div>
+
+                <div className="mb-3">
+                    <label className="form-label">Sede*</label>
+                    <select className="form-select">
+                        <option value="">Seleccione una sede</option>
+                        <option value="sede1">Sede 1</option>
+                        <option value="sede2">Sede 2</option>
+                    </select>
+                </div>
+
+                <div className="form-check mb-3">
+                    <input className="form-check-input" type="checkbox" id="terminos" defaultChecked />
+                    <label className="form-check-label" htmlFor="terminos">
+                        Acepto los términos y condiciones
+                    </label>
+                </div>
+
+                <button type="submit" className="btn btn-dark w-100">
+                    Registrar cuenta
+                </button>
+            </form>
         </div>
     );
-};
-
-export default RegistroForm;
+}
