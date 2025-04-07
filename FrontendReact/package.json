@@ -13,6 +13,7 @@
     "@tanstack/react-table": "^8.20.6",
     "block-ui": "^2.70.1",
     "bootstrap": "^5.3.5",
+    "bootstrap-icons": "^1.11.3",
     "datatables.net": "^2.1.8",
     "datatables.net-bs5": "^2.1.8",
     "datatables.net-dt": "^2.1.8",

@@ -1,0 +1,9 @@
+/* Puedes incluir en tu archivo CSS */
+.table th,
+.table td {
+  vertical-align: middle;
+}
+
+.btn {
+  border-radius: 0.5rem;
+}

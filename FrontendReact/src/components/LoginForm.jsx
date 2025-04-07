@@ -39,9 +39,12 @@ export default function LoginForm() {
                         <input type="password" className="form-control" placeholder="Contraseña" />
                     </div>
 
-                    <button type="submit" className="btn btn-dark w-100 mb-3">
-                        Continuar
-                    </button>
+                    <Link to="/PaginaPrincipal">
+                        <button type="submit" className="btn btn-dark w-100 mb-3">
+                            Continuar
+                        </button>
+                    </Link>
+
 
                     <div className="text-center text-muted" style={{ fontSize: "0.9rem" }}>
                         <i className="bi bi-shield-lock"></i> Su información está segura
