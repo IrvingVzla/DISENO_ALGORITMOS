@@ -11,6 +11,8 @@ import LandingPage from './components/LandingPage';
 import ParamUsuarios from './components/Parametrizacion/ParamUsuarios/ParamUsuarios';
 import ParamTiposDoc from './components/Parametrizacion/ParamTiposDoc/ParamTiposDoc';
 import ParamCiudades from './components/Parametrizacion/ParamCiudades/ParamCiudades';
+import ParamSedes from './components/Parametrizacion/ParamSedes/ParamSedes';
+import ParamAreas from './components/Parametrizacion/ParamAreas/ParamAreas';
 
 const App = () => {
     return (
@@ -25,6 +27,8 @@ const App = () => {
             <Route path="/ParamUsuarios" element={<ParamUsuarios />} />
             <Route path="/ParamTiposDoc" element={<ParamTiposDoc />} />
             <Route path="/ParamCiudades" element={<ParamCiudades />} />
+            <Route path="/ParamSedes" element={<ParamSedes />} />
+            <Route path="/ParamAreas" element={<ParamAreas />} />
 
 
             {/* Rutas protegidas */}

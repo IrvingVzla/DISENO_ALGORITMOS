@@ -27,8 +27,6 @@ const PaginaPrincipal = () => {
                         </Link>
                     </div>
 
-
-
                     <div className="col-md-4">
                         <Link to="/ParamCiudades" className="text-decoration-none">
                             <div className="card h-100 border-dark-subtle shadow-sm">
@@ -41,12 +39,14 @@ const PaginaPrincipal = () => {
                     </div>
 
                     <div className="col-md-4">
-                        <div className="card h-100 border-dark-subtle shadow-sm">
-                            <div className="card-body">
-                                <h5 className="card-title">3. Sedes</h5>
-                                <p className="card-text">Agrega, edita o elimina las sedes de cada ciudad.</p>
+                        <Link to="/ParamSedes" className="text-decoration-none">
+                            <div className="card h-100 border-dark-subtle shadow-sm">
+                                <div className="card-body">
+                                    <h5 className="card-title">3. Sedes</h5>
+                                    <p className="card-text">Agrega, edita o elimina las sedes de cada ciudad.</p>
+                                </div>
                             </div>
-                        </div>
+                        </Link>
                     </div>
 
                     <div className="col-md-4">
@@ -61,12 +61,14 @@ const PaginaPrincipal = () => {
                     </div>
 
                     <div className="col-md-4">
-                        <div className="card h-100 border-dark-subtle shadow-sm">
-                            <div className="card-body">
-                                <h5 className="card-title">5. Áreas</h5>
-                                <p className="card-text">Define y estructura las áreas de trabajo.</p>
+                        <Link to="/ParamAreas" className="text-decoration-none">
+                            <div className="card h-100 border-dark-subtle shadow-sm">
+                                <div className="card-body">
+                                    <h5 className="card-title">5. Áreas</h5>
+                                    <p className="card-text">Define y estructura las áreas de trabajo.</p>
+                                </div>
                             </div>
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </div>
