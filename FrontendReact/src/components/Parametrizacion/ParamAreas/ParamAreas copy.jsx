@@ -3,17 +3,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 
 const ciudades = [
-  { id: 1, nombre: "Sede Bogota", ciudad: "Bogota", areas: 5 },
-  { id: 2, nombre: "Sede Cali", ciudad: "Cali", areas: 3 },
+  { id: 1, nombre: "Juridica", ciudad: "Bogota", sede: "Sede Bogota" },
+  { id: 2, nombre: "Recursos Humanos", ciudad: "Cali", sede: "Sede Cali" },
 ];
 
-const ParamSedes = () => {
-  const [tipos, setSedes] = useState(ciudades);
+const ParamAreas = () => {
+  const [tipos, setAreas] = useState(ciudades);
   const [busqueda, setBusqueda] = useState("");
   const [confirmarEliminacion, setConfirmarEliminacion] = useState(null);
 
   const handleEliminar = (id) => {
-    setSedes(tipos.filter((t) => t.id !== id));
+    setAreas(tipos.filter((t) => t.id !== id));
     setConfirmarEliminacion(null);
   };
 
@@ -27,13 +27,13 @@ const ParamSedes = () => {
         <button className="btn btn-link text-dark mb-3">← Atrás</button>
       </Link>
 
-      <h2 className="fw-bold">Bienvenido al Panel de Sedes</h2>
+      <h2 className="fw-bold">Bienvenido al Panel de Areas</h2>
 
       <div className="d-flex gap-2 mb-4">
         <input
           type="text"
           className="form-control w-50"
-          placeholder="Buscar sede..."
+          placeholder="Buscar Area..."
           value={busqueda}
           onChange={(e) => setBusqueda(e.target.value)}
         />
@@ -49,7 +49,7 @@ const ParamSedes = () => {
             <th>ID</th>
             <th>Nombre</th>
             <th>Ciudad</th>
-            <th>Cant. Areas</th>
+            <th>Sede</th>
             <th></th>
           </tr>
         </thead>
@@ -59,7 +59,7 @@ const ParamSedes = () => {
               <td>{tipo.id}</td>
               <td>{tipo.nombre}</td>
               <td>{tipo.ciudad}</td>
-              <td>{tipo.areas}</td>
+              <td>{tipo.sede}</td>
               <td>
                 <div className="d-flex justify-content-center gap-2">
                   <button className="btn btn-link p-0">
@@ -82,4 +82,4 @@ const ParamSedes = () => {
   );
 };
 
-export default ParamSedes;
+export default ParamAreas;
