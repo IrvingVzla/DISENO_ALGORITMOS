@@ -100,7 +100,7 @@ const ParamAreas = () => {
               <td>{tipo.activo ? "Activo" : "Inactivo"}</td>
               <td>
                 <div className="d-flex justify-content-center gap-2">
-                  <button className="btn btn-link p-0">
+                  <button className="btn btn-link p-0 text-danger">
                     <i className="bi bi-trash"></i>
                   </button>
                   <button
